@@ -4,6 +4,11 @@ var randomWords=require("random-words")
 const app = express.Router();
 
 
+app.get("/random", async (req, res) => {
+  let word = await randomWords({exactly: 2,maxLength: 4,join: ''});
+  res.send(word);
+});
+
 app.get("/playzone", async (req, res) => {
 
   let token = req.headers.token;
