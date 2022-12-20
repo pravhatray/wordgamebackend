@@ -117,7 +117,7 @@ app.post("/addplayer", async (req, res) => {
   try {
     let playerpost = await Playerinfo.create(req.body);
     res.send({
-      token: `${playerpost.id}:${playerpost.name}:${playerpost.dificultylevel}`,
+      token: `${playerpost.id}:${playerpost.name}:${playerpost.dificultylevel}:${playerpost.score}`,
     });
   } catch (e) {
     res.status(500).send(e.message);
